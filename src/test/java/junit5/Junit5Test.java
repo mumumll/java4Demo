@@ -25,6 +25,10 @@ public class Junit5Test {
     void test02(){
         System.out.println("this is test02");
     }
+    @Test
+    void test03(){
+        System.out.println("this is test03");
+    }
 
     @AfterAll
     public static void after(){

@@ -1,5 +1,6 @@
 package junit5;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -7,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CalculatorTest {
 //    Calculator calculator = new Calculator();
     @Test
-    void add() {
+    void addTest() {
         final int result1 = Calculator.add(3,7);
         System.out.println("加法：" + result1);
 
@@ -26,28 +27,33 @@ class CalculatorTest {
     }
 
     @Test
-    void subtract() {
+    void subtractTest() {
         int result = Calculator.subtract(7,3);
         System.out.println("减法：" + result);
     }
 
     @Test
-    void multiply() {
+    void multiplyTest() {
         int result = Calculator.multiply(3,7);
         System.out.println("乘法：" + result);
     }
 
     @Test
-    void divide() {
+    void divideTest() {
         int result = Calculator.divide(8,2);
         System.out.println("除法：" + result);
     }
 
     @Test
-    void count() {
+    void countTest() {
         int result = Calculator.count(3);
         result = Calculator.count(1);
         result = Calculator.count(1);
         System.out.println("统计：" + result);
+    }
+    @BeforeEach
+    void clearTest(){
+        Calculator.clear();
+        System.out.println("clear");
     }
 }
