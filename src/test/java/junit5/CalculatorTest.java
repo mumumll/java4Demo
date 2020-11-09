@@ -1,13 +1,17 @@
 package junit5;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * 按顺序执行测试类
+ */
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class CalculatorTest {
-//    Calculator calculator = new Calculator();
     @Test
+    @Order(1)
     void addTest() {
         final int result1 = Calculator.add(3,7);
         System.out.println("加法：" + result1);
@@ -27,24 +31,28 @@ class CalculatorTest {
     }
 
     @Test
+    @Order(2)
     void subtractTest() {
         int result = Calculator.subtract(7,3);
         System.out.println("减法：" + result);
     }
 
     @Test
+    @Order(3)
     void multiplyTest() {
         int result = Calculator.multiply(3,7);
         System.out.println("乘法：" + result);
     }
 
     @Test
+    @Order(4)
     void divideTest() {
         int result = Calculator.divide(8,2);
         System.out.println("除法：" + result);
     }
 
     @Test
+    @Order(5)
     void countTest() {
         int result = Calculator.count(3);
         result = Calculator.count(1);
@@ -54,6 +62,5 @@ class CalculatorTest {
     @BeforeEach
     void clearTest(){
         Calculator.clear();
-        System.out.println("clear");
     }
 }

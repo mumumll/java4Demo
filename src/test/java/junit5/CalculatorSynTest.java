@@ -1,11 +1,8 @@
 package junit5;
 
-import org.junit.Assert;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.RepeatedTest;
-import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
+import org.junit.jupiter.api.RepeatedTest;
+
 
 /**
  * @author mumu
@@ -16,7 +13,6 @@ import static org.testng.Assert.*;
  */
 public class CalculatorSynTest {
 
-    @Test
     @RepeatedTest(10)
     public void countTest() {
         int result = Calculator.count(3);
@@ -24,7 +20,6 @@ public class CalculatorSynTest {
         System.out.println("统计：" + result);
     }
 
-    @Test
     @RepeatedTest(10)
     public void synCountTest() {
         int result = Calculator.synCount(1);
