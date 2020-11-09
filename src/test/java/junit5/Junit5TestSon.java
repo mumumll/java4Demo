@@ -22,6 +22,7 @@ public class Junit5TestSon extends Junit5Test {
         System.out.println("this is test01 Son");
     }
     @Test
+    @RepeatedTest(10)
     void test02Son(){
         System.out.println("this is test02 Son");
     }

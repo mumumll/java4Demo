@@ -17,10 +17,12 @@ public  class demo1_PutIn {
     @Test
     public void putIn(){
         System.out.println("装入坚果C");
-    }@Test
+    }
+    @Test
     public void putInD(){
         System.out.println("装入坚果D");
-    }@Test
+    }
+    @Test
     public void putInE(){
         System.out.println("装入坚果E");
     }
