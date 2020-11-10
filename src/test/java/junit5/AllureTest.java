@@ -48,7 +48,7 @@ class AllureTest {
     void subtractTest() {
         int result = Calculator.subtract(7,3);
         System.out.println("减法：" + result);
-        Allure.addAttachment("pic","image/png",this.getClass().getResourceAsStream("E:/muke/junit4TestDemo/src/main/resources/erha.png"),".png");
+        Allure.addAttachment("pic","image/png",this.getClass().getResourceAsStream("/erha.png"),".png");
     }
 
     @Test
