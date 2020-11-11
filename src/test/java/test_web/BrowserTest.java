@@ -6,6 +6,8 @@ package test_web;/**
  **/
 
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 /**
  * @program: junit4TestDemo
@@ -17,6 +19,8 @@ import org.junit.jupiter.api.Test;
  * @create: 2020-11-10 23:58
  **/
 public class BrowserTest extends BaseTest{
+
+
     @Test
     public void browserTest(){
         driver.get("https://ceshiren.com/t/topic/7718/21");

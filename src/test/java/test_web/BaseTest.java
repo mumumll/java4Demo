@@ -22,11 +22,12 @@ import org.openqa.selenium.firefox.FirefoxDriver;
  **/
 public class BaseTest {
     public static WebDriver driver;
+    public static String browserName = "chrome";
     @BeforeAll
-    public static void initData(){
-        String browserName = System.getenv("browser");
+    public static void initData(String browserName){
+//        browserName = System.getenv("browser");
         if("chrome".equals(browserName)){
-            System.setProperty("webdriver.chrome.driver","D:/software/chromedriver_win32/chromedriver");
+            System.setProperty("webdriver.chrome.driver","H:\\IdeaSpace\\xunitTestDemo\\java4Demo\\src\\main\\resources\\chromedriver.exe");
             driver = new ChromeDriver();
         }else if("edge".equals(browserName)){
             System.setProperty("webdriver.edge.driver","D:/software/chromedriver_win32/chromedriver");
