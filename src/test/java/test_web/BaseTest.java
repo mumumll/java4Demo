@@ -14,7 +14,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 /**
  * @program: junit4TestDemo
  *
- * @description: 支持浏览器处理
+ * @description: 支持多浏览器处理
  *
  * @author: mumu
  *
@@ -22,25 +22,41 @@ import org.openqa.selenium.firefox.FirefoxDriver;
  **/
 public class BaseTest {
     public static WebDriver driver;
-    public static String browserName = "chrome";
+    public static String browserName = "edge";
+    // 获取浏览器驱动路径
+
     @BeforeAll
-    public static void initData(String browserName){
+    public static void initData(){
 //        browserName = System.getenv("browser");
+        String chromeDriver = BaseTest.class.getClass().getResource("/chromedriver.exe").getPath();
+        String geckodDriver = BaseTest.class.getClass().getResource("/geckodriver.exe").getPath();
+        String msedgeDriver = BaseTest.class.getClass().getResource("/msedgedriver.exe").getPath();
+
         if("chrome".equals(browserName)){
-            System.setProperty("webdriver.chrome.driver","H:\\IdeaSpace\\xunitTestDemo\\java4Demo\\src\\main\\resources\\chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver",chromeDriver);
             driver = new ChromeDriver();
         }else if("edge".equals(browserName)){
-            System.setProperty("webdriver.edge.driver","D:/software/chromedriver_win32/chromedriver");
+            System.setProperty("webdriver.edge.driver",geckodDriver);
             driver = new FirefoxDriver();
         }else if("firefox".equals(browserName)){
-            System.setProperty("webdriver.gecko.driver","D:/software/chromedriver_win32/chromedriver");
+            System.setProperty("webdriver.gecko.driver",msedgeDriver);
             driver = new FirefoxDriver();
         }
     }
     @AfterAll
     public static void quit(){
+        sleep();
         driver.quit();
 
     }
+
+    public static void sleep(){
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }

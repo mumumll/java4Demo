@@ -12,7 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 /**
  * @program: junit4TestDemo
  *
- * @description: 测试多浏览器
+ * @description: 启动多浏览器
  *
  * @author: mumu
  *
@@ -21,8 +21,16 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class BrowserTest extends BaseTest{
 
 
+    /**
+     * 测试启动浏览器
+     */
     @Test
-    public void browserTest(){
-        driver.get("https://ceshiren.com/t/topic/7718/21");
+    public void driverTest(){
+      /*  String str = this.getClass().getResource("/chromedriver.exe").getPath();
+        System.out.println(str);
+        System.setProperty("webdriver.chrome.driver",str);
+
+        WebDriver driver = new ChromeDriver();*/
+        driver.get("https://www.baidu.com/");
     }
 }
