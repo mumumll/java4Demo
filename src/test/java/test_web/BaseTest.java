@@ -22,7 +22,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
  **/
 public class BaseTest {
     public static WebDriver driver;
-    public static String browserName = "edge";
+    public static String browserName = "chrome";
     // 获取浏览器驱动路径
 
     @BeforeAll
@@ -52,7 +52,7 @@ public class BaseTest {
 
     public static void sleep(){
         try {
-            Thread.sleep(3000);
+            Thread.sleep(20000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
