@@ -1,12 +1,12 @@
-package test_web;
-
+package test_web.page;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,18 +15,29 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-
 /**
- * @author mumu
- * @Description: 企业微信cookies登录
- * @date 2020/11/13 16:09
- */
-public class WinxinLoginTest extends BaseTest {
+ * @program: junit4TestDemo
+ * @description: 初始化操作PO
+ * @author: mumu
+ * @create: 2020-11-15 14:49
+ **/
+public class MainPage extends BasePage{
+//    WebDriver driver = new ChromeDriver();
+    public MainPage() throws IOException {
+        this.login();
+    }
+    public ContactPage contact(){
+        //进入通讯录
+        click(By.id("menu_contacts"));
+        //传递selenium的driver给另外一个PO
+        return new ContactPage(driver);
+    }
+
     /**
      * 登录企业微信
+     * @throws IOException
      */
-    @BeforeAll
-    static void login() throws IOException {
+    void login() throws IOException {
         File file = new File("cookies.yaml");
         if (file.exists()) {
             // 复用cookies
@@ -36,21 +47,12 @@ public class WinxinLoginTest extends BaseTest {
             loginTest();
         }
     }
-
-    /**
-     * 添加成员
-     */
-    @Test
-    void contackAdd() {
-        System.out.println("添加成员");
-    }
-
     /**
      * 扫码登录获取cookies
      *
      * @throws IOException
      */
-    static void loginTest() throws IOException {
+    void loginTest() throws IOException {
 
         // 隐士等待5秒
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -68,7 +70,7 @@ public class WinxinLoginTest extends BaseTest {
      *
      * @throws IOException
      */
-    static void loginedTest() throws IOException {
+   void loginedTest() throws IOException {
 
         // 隐士等待5秒
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -84,6 +86,16 @@ public class WinxinLoginTest extends BaseTest {
         });
         // 刷新浏览器
         driver.navigate().refresh();
+    }
+    /**
+     * 设置强制等待时间
+     */
+    public static void sleep(int time){
+        try {
+            Thread.sleep(time);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 
