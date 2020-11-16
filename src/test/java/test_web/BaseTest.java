@@ -45,14 +45,14 @@ public class BaseTest {
     }
     @AfterAll
     public static void quit(){
-        sleep();
+        sleep(10000);
         driver.quit();
 
     }
 
-    public static void sleep(){
+    public static void sleep(int time){
         try {
-            Thread.sleep(20000);
+            Thread.sleep(time);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
