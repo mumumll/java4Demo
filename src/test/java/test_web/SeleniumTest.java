@@ -18,14 +18,18 @@ import java.util.concurrent.TimeUnit;
  */
 public class SeleniumTest extends BaseTest{
     Actions actions = new Actions(driver) ;
+    @BeforeAll
+    static void beforeAll(){
+        // 隐士等待5秒
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    }
 
     /**
      * selenium 元素定位和登录ceshiren网站
      */
     @Test
     void loginTest(){
-        // 隐士等待5秒
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
         // 打开网页
         driver.get("https://ceshiren.com");
         // 窗口最大化
@@ -35,7 +39,7 @@ public class SeleniumTest extends BaseTest{
         // 输入用户名
         driver.findElement(By.id("login-account-name")).sendKeys("1270102724@qq.com");
         // 输入密码
-        driver.findElement(By.id("login-account-password")).sendKeys("19921007mll");
+        driver.findElement(By.id("login-account-password")).sendKeys("*******");
         // 点击登录
         driver.findElement(By.id("login-button")).click();
         // 刷新页面
@@ -99,6 +103,28 @@ public class SeleniumTest extends BaseTest{
     @Test
     void labelTest(){
         driver.get("http://sahitest.com/demo/label.htm");
+    }
+
+    /**
+     * 多窗口切换
+     */
+    @Test
+    void switchWindowTest(){
+        driver.get("https://www.baidu.com");
+        // 窗口最大化
+        driver.manage().window().maximize();
+        sleep(3000);
+        // 点击登录
+        driver.findElement(By.name("tj_login")).click();
+        // 点击用户名登录
+        driver.findElement(By.xpath("//p[contains(text(),'用户名登录')]"));
+        // 输入用户名和密码
+        driver.findElement(By.id("userName")).sendKeys("1270102724@qq.com");
+        driver.findElement(By.id("password")).sendKeys("19921007mll");
+        // 点击登录
+        driver.findElement(By.xpath("//input[@value='登录']"));
+
+
     }
 
 

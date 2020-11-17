@@ -5,7 +5,6 @@ package junit5;/**
  * @create: 2020-11-10 00:07
  **/
 
-import org.testng.ITestResult;
 
 /**
  * @program: junit4TestDemo
@@ -19,11 +18,11 @@ import org.testng.ITestResult;
 public class AllureTestFailListener {
     /**
      * 用例失败
-     * @param result
+     * @param
      */
-    public void onTestFailure(ITestResult result) {
-        System.out.println("*** 测试执行 " + result.getMethod().getMethodName() + " 失败...");
-        System.out.println(result.getMethod().getMethodName() + " 失败!");
+    public void onTestFailure() {
+       /* System.out.println("*** 测试执行 " + result.getMethod().getMethodName() + " 失败...");
+        System.out.println(result.getMethod().getMethodName() + " 失败!");*/
        /* super.onTestFailure(result);
         TestBase testBase = (TestBase) result.getInstance();
         //获取驱动
