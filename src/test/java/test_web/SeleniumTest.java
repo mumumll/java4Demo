@@ -110,7 +110,7 @@ public class SeleniumTest extends BaseTest{
      */
     @Test
     void switchWindowTest(){
-        driver.get("https://www.baidu.com");
+      /*  driver.get("https://www.baidu.com");
         // 窗口最大化
         driver.manage().window().maximize();
         sleep(3000);
@@ -122,7 +122,16 @@ public class SeleniumTest extends BaseTest{
         driver.findElement(By.id("userName")).sendKeys("1270102724@qq.com");
         driver.findElement(By.id("password")).sendKeys("19921007mll");
         // 点击登录
-        driver.findElement(By.xpath("//input[@value='登录']"));
+        driver.findElement(By.xpath("//input[@value='登录']"));*/
+
+        driver.get("https://www.runoob.com/try/try.php?filename=jqueryui-api-droppable");
+        driver.switchTo().frame("iframeResult");
+        System.out.println(driver.findElement(By.id("draggable")).getText());
+        driver.switchTo().parentFrame();
+        driver.switchTo().parentFrame();
+
+        driver.findElement(By.id("submitBTN")).click();
+        System.out.println(driver.findElement(By.id("submitBTN")).getText());
 
 
     }

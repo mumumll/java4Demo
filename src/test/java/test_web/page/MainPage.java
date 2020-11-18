@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @program: junit4TestDemo
- * @description: 初始化操作PO
+ * @description: 初始化操作,登录企业微信
  * @author: mumu
  * @create: 2020-11-15 14:49
  **/
