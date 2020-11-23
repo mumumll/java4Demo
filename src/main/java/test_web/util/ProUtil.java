@@ -15,6 +15,8 @@ public class ProUtil {
     public ProUtil(String FilePath) {
         Pro = RedProperties(FilePath);
     }
+
+
     private Properties RedProperties(String FilePath) {
         Properties properties = new Properties();
         FileInputStream fileInputStream;
@@ -43,11 +45,11 @@ public class ProUtil {
     public int GetLines() {
         return Pro.size();
     }
-  /*  public static void main(String[] args) {
-        // TODO Auto-generated method stub
-        //String FilePath;
-        ProUtil ProU = new ProUtil("H:\\IdeaSpace\\xunitTestDemo\\java4Demo\\src\\main\\resources\\element.properties");
-        System.out.println(ProU.GetPro("username"));
+/*    public static void main(String[] args) {
+//        String fliePath = ProUtil.class.getResource("element.properties").getPath();
+        ProUtil pro = new ProUtil("H:\\IdeaSpace\\xunitTestDemo\\java4Demo\\src\\main\\resources\\element.properties");
+//        ProUtil pro = new ProUtil(fliePath);
+        System.out.println(pro.GetPro("username"));
     }*/
 
 }

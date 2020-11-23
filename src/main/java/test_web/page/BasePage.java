@@ -54,7 +54,12 @@ public class BasePage {
     public By getByLocal(String key) {
         key = "username";
         System.out.println("我是获取元素");
+
+        // 获取元素文件
+       /* String fliePath = String.valueOf(BasePage.class.getResource("element.properties"));
+        ProUtil pro = new ProUtil(fliePath);*/
         ProUtil pro = new ProUtil("H:\\IdeaSpace\\xunitTestDemo\\java4Demo\\src\\main\\resources\\element.properties");
+
         System.out.println(pro);
         String Locator = pro.GetPro(key); //username=name>email
         String LocatorBy = Locator.split(">")[0];
@@ -69,6 +74,7 @@ public class BasePage {
             return By.xpath(LocatorValue);
         }
     }
+
     /**
      * 点击操作
      * @param by
@@ -77,13 +83,14 @@ public class BasePage {
         driver.findElement(by).click();
     }
 
-    /**
+  /*  *//**
      * 查找元素，设置值
      * @param by
      * @param content
-     */
+     *//*
     void sendKeys(By by, String content) {
         driver.findElement(by).sendKeys(content);
-    }
+    }*/
+
 
 }

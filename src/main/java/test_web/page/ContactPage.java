@@ -15,6 +15,13 @@ public class ContactPage extends BasePage {
     }
 
     /**
+     * 获取添加成员元素
+     * @return
+     */
+    public WebElement getAddMember(){
+        return getElement("addmemter");
+    }
+    /**
      * 获取联系人姓名元素
      */
     public WebElement getUernameElement(){
