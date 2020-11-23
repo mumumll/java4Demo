@@ -1,6 +1,5 @@
 package test_web.page;
 
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -18,7 +17,6 @@ public class ContactPage extends BasePage {
     /**
      * 获取联系人姓名元素
      */
-    @Test
     public WebElement getUernameElement(){
         return getElement("username");
     }

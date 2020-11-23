@@ -1,6 +1,5 @@
 package test_web.page;
 
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -60,8 +59,6 @@ public class BasePage {
         String Locator = pro.GetPro(key); //username=name>email
         String LocatorBy = Locator.split(">")[0];
         String LocatorValue = Locator.split(">")[1];
-
-
         if(LocatorBy.equals("id")) {
             return By.id(LocatorValue);
         }else if(LocatorBy.equals("name")) {
