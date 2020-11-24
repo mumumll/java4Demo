@@ -21,8 +21,12 @@ public class BaseTest {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         desiredCapabilities.setCapability("platformName", "android");
         desiredCapabilities.setCapability("deviceName", "127.0.0.1:7555");
-        desiredCapabilities.setCapability("appPackage", "com.xueqiu.android");
-        desiredCapabilities.setCapability("appActivity", ".view.WelcomeActivityAlias");
+        // 学球
+        /*desiredCapabilities.setCapability("appPackage", "com.xueqiu.android");
+        desiredCapabilities.setCapability("appActivity", ".view.WelcomeActivityAlias");*/
+        // 企业微信
+        desiredCapabilities.setCapability("appPackage", "com.tencent.wework");
+        desiredCapabilities.setCapability("appActivity", ".launch.LaunchSplashActivity");
         desiredCapabilities.setCapability("noReset", "true");
         desiredCapabilities.setCapability("udid", "");
         AppiumDriver driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),desiredCapabilities);
