@@ -3,11 +3,8 @@ package test_web;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.seleniumhq.jetty9.server.HttpChannelState;
 
 import java.util.concurrent.TimeUnit;
 

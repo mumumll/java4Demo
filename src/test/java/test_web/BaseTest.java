@@ -27,19 +27,15 @@ public class BaseTest {
 
     @BeforeAll
     public static void initData(){
-//        browserName = System.getenv("browser");
-        String chromeDriver = BaseTest.class.getClass().getResource("/chromedriver.exe").getPath();
-        String geckodDriver = BaseTest.class.getClass().getResource("/geckodriver.exe").getPath();
-        String msedgeDriver = BaseTest.class.getClass().getResource("/msedgedriver.exe").getPath();
 
         if("chrome".equals(browserName)){
-            System.setProperty("webdriver.chrome.driver",chromeDriver);
+//            System.setProperty("webdriver.chrome.driver",chromeDriver);
             driver = new ChromeDriver();
         }else if("edge".equals(browserName)){
-            System.setProperty("webdriver.edge.driver",geckodDriver);
+//            System.setProperty("webdriver.edge.driver",geckodDriver);
             driver = new EdgeDriver();
         }else if("firefox".equals(browserName)){
-            System.setProperty("webdriver.gecko.driver",msedgeDriver);
+//            System.setProperty("webdriver.gecko.driver",msedgeDriver);
             driver = new FirefoxDriver();
         }
     }

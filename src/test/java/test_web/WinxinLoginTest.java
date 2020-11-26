@@ -41,24 +41,9 @@ public class WinxinLoginTest extends BaseTest {
     static void beforeAll() throws IOException, InterruptedException {
         File file = new File("cookies.yaml");
         if (file.exists()) {
-            //利用cookie复用session登录
-            driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-            driver.get("https://work.weixin.qq.com/wework_admin/frame");
-
-            ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
-            TypeReference typeReference = new TypeReference<List<HashMap<String, Object>>>() {
-            };
-
-            List<HashMap<String, Object>> cookies = (List<HashMap<String, Object>>) mapper.readValue(file, typeReference);
-            System.out.println(cookies);
-
-            cookies.forEach(cookieMap -> {
-                driver.manage().addCookie(new Cookie(cookieMap.get("name").toString(), cookieMap.get("value").toString()));
-            });
-
-            driver.navigate().refresh();
+            loginedTest();
         } else {
-            needLogin();
+            loginTest();
         }
     }
 
@@ -76,7 +61,7 @@ public class WinxinLoginTest extends BaseTest {
          *
          * @throws IOException
          */
-       /* static void loginTest () throws IOException {
+        static void loginTest () throws IOException {
             driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
             driver.get("https://work.weixin.qq.com/wework_admin/frame");
             //sleep 20
@@ -86,7 +71,7 @@ public class WinxinLoginTest extends BaseTest {
             mapper.writeValue(new File("cookies.yaml"), cookies);
             System.exit(0);
 
-        }*/
+        }
 
 
         /**
@@ -94,14 +79,14 @@ public class WinxinLoginTest extends BaseTest {
          *
          * @throws IOException
          */
-/*        static void loginedTest () throws IOException {
+        static void loginedTest () throws IOException {
             File file = new File("cookies.yaml");
             // 隐士等待5秒
             driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
             // 打开企业微信扫码页面
             driver.get("https://work.weixin.qq.com/wework_admin/frame");
             ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
-            TypeReference typeReference = new TypeReference<List<HashMap<String, Object>>>() {
+            TypeReference<List<HashMap<String, Object>>> typeReference = new TypeReference<List<HashMap<String, Object>>>() {
             };
 
             List<HashMap<String, Object>> cookies = mapper.readValue(file, typeReference);
@@ -114,6 +99,6 @@ public class WinxinLoginTest extends BaseTest {
             driver.navigate().refresh();
             // 窗口最大化
             driver.manage().window().maximize();
-        }*/
+        }
 
 }
