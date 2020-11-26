@@ -1,8 +1,11 @@
 package framework;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,13 +20,19 @@ import java.util.concurrent.TimeUnit;
 public class SearchStepCase {
     public List<String> data;
     public List<HashMap<String, Object>> steps;
-    private ChromeDriver driver;
+    private WebDriver driver;
     private WebElement currentElement;
 
     public void run() {
         steps.forEach(step->{
             if(step.keySet().contains("chrome")){
                 driver = new ChromeDriver();
+            }
+            if(step.keySet().contains("firefox")){
+                driver = new FirefoxDriver();
+            }
+            if(step.keySet().contains("edge")){
+                driver = new EdgeDriver();
             }
             if (step.keySet().contains("implicitly_wait")){
                 driver.manage().timeouts().implicitlyWait(
@@ -42,6 +51,19 @@ public class SearchStepCase {
                     if(stringStringEntry.getKey().contains("xpath")){
                         bys.add(By.xpath(stringStringEntry.getValue()));
                     }
+                    if(stringStringEntry.getKey().contains("name")){
+                        bys.add(By.name(stringStringEntry.getValue()));
+                    }
+                    if(stringStringEntry.getKey().contains("cssSelector")){
+                        bys.add(By.cssSelector(stringStringEntry.getValue()));
+                    }
+                    if(stringStringEntry.getKey().contains("className")){
+                        bys.add(By.className(stringStringEntry.getValue()));
+                    }
+                    if(stringStringEntry.getKey().contains("linkText")){
+                        bys.add(By.linkText(stringStringEntry.getValue()));
+                    }
+
                 });
                 currentElement = driver.findElement(bys.get(0));
             }
