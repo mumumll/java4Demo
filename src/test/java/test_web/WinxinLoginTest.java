@@ -54,6 +54,14 @@ public class WinxinLoginTest extends BaseTest {
         void contackAdd () {
             System.out.println("添加成员");
             driver.findElement(By.linkText("添加成员")).click();
+            // 成员姓名
+            driver.findElement(By.id("username")).sendKeys("summer01");
+            // 成员账号
+            driver.findElement(By.name("acctid")).sendKeys("summerAcctid01");
+            // 成员手机号
+            driver.findElement(By.name("mobile")).sendKeys("18087878009");
+            // 保存
+            driver.findElement(By.linkText("保存")).click();
         }
 
         /**
