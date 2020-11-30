@@ -1,11 +1,9 @@
 package test_web.page;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.openqa.selenium.By;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import org.openqa.selenium.Cookie;
-
 
 import java.io.File;
 import java.io.IOException;
@@ -25,13 +23,13 @@ public class MainPage extends BasePage{
     public MainPage() throws IOException {
         this.login();
     }
-    public ContactPage contact(){
+  /*  public ContactPage contact(){
         //进入通讯录
         click(By.id("menu_contacts"));
         //传递selenium的driver给另外一个PO
         return new ContactPage(driver);
     }
-
+*/
     /**
      * 登录企业微信
      * @throws IOException

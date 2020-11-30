@@ -15,6 +15,14 @@ public class ContactPage extends BasePage {
     }
 
     /**
+     * 获取通讯录元素
+     * @return
+     */
+    public WebElement getMenuContacts(){
+        return getElement("menucontacts");
+    }
+
+    /**
      * 获取添加成员元素
      * @return
      */

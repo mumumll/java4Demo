@@ -17,13 +17,29 @@ public class ContactHandle extends BaseHandle{
     }
 
     /**
+     * 点击通讯录
+     */
+    public void clickMenuContacts(){
+        System.out.println("点击通讯录");
+        contactPage.getMenuContacts().click();
+    }
+
+    /**
+     * 点击添加成员
+     */
+    public void clickAddMember(){
+        System.out.println("点击添加成员");
+        contactPage.getAddMember().click();
+    }
+
+    /**
      * 输入成员姓名
      * @param username
      */
     public void sendUername( String username){
         System.out.println("输入成员" + username);
         WebElement usernameElement = contactPage.getUernameElement();
-        ClearText(usernameElement);
+//        ClearText(usernameElement);
         usernameElement.sendKeys(username);
     }
 
@@ -32,14 +48,16 @@ public class ContactHandle extends BaseHandle{
      * @param acctid
      */
     public void sendAcctid(String acctid){
+        System.out.println("输入部门号" + acctid);
         WebElement acctidElement = contactPage.getAcctidElement();
-        ClearText(acctidElement);
+//        ClearText(acctidElement);
         acctidElement.sendKeys(acctid);
     }
 
     public void sendMobile(String mobile){
+        System.out.println("输入手机号" + mobile);
         WebElement mobileElement = contactPage.getMobileElement();
-        ClearText(mobileElement);
+//        ClearText(mobileElement);
         mobileElement.sendKeys(mobile);
     }
 }

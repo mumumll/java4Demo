@@ -52,7 +52,7 @@ public class BasePage {
      * @return
      */
     public By getByLocal(String key) {
-        key = "username";
+//        key = "username";
         System.out.println("我是获取元素");
 
         // 获取元素文件
@@ -70,6 +70,8 @@ public class BasePage {
             return By.name(LocatorValue);
         }else if(LocatorBy.equals("className")) {
             return By.className(LocatorValue);
+        }else if(LocatorBy.equals("linkText")) {
+            return By.linkText(LocatorValue);
         }else {
             return By.xpath(LocatorValue);
         }
