@@ -6,7 +6,7 @@ import test_web.page.ContactPage;
 
 /**
  * @author mumu
- * @Description: 输入通讯录页面元素
+ * @Description: 输入通讯录添加、搜索页面元素
  * @date 2020/11/18 14:40
  */
 public class ContactHandle extends BaseHandle{
@@ -54,10 +54,52 @@ public class ContactHandle extends BaseHandle{
         acctidElement.sendKeys(acctid);
     }
 
+    /**
+     * 输入手机号
+     * @param mobile
+     */
     public void sendMobile(String mobile){
         System.out.println("输入手机号" + mobile);
         WebElement mobileElement = contactPage.getMobileElement();
 //        ClearText(mobileElement);
         mobileElement.sendKeys(mobile);
     }
+
+    /**
+     * 点击保存按钮
+     */
+    public void clickBtnSave(){
+        System.out.println("点击保存");
+        contactPage.getBtnSave().click();
+    }
+
+    /**
+     * 输入搜索内容
+     * @param searchMemter
+     */
+    public void sendSearchMemter(String searchMemter){
+        System.out.println("输入搜索内容" + searchMemter);
+        WebElement searchMemterElement = contactPage.getSearchMemter();
+        searchMemterElement.click();
+        searchMemterElement.sendKeys(searchMemter);
+    }
+
+    /**
+     * 点击删除成员
+     *
+     */
+    public void clickdelMemter(){
+        System.out.println("点击删除成员");
+        sleep(3000);
+        contactPage.getDelMemter().click();
+
+    }
+    /**
+     * 点击确认删除
+     */
+    public void clickBtnDelSubmit(){
+//        sleep(3000);
+        contactPage.getBtnDelSubmit().click();
+    }
+
 }

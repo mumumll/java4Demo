@@ -29,7 +29,7 @@ public class BaseHandle {
      * 登录企业微信
      * @throws IOException
      */
-    void login() throws IOException {
+    public void setUserCookie() throws IOException {
         File file = new File("cookies.yaml");
         if (file.exists()) {
             // 复用cookies

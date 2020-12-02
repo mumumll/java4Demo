@@ -1,10 +1,21 @@
 package test_web.page;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import test_web.util.ProUtil;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @program: junit4TestDemo
@@ -13,14 +24,10 @@ import test_web.util.ProUtil;
  * @create: 2020-11-15 14:49
  **/
 public class BasePage {
-    WebDriver driver = new ChromeDriver();
+    public static WebDriver driver;
     public BasePage(WebDriver driver) {
         this.driver=driver;
     }
-    public BasePage(){
-
-    }
-
     /**
      * 获取元素
      * @param key
@@ -58,7 +65,7 @@ public class BasePage {
         // 获取元素文件
        /* String fliePath = String.valueOf(BasePage.class.getResource("element.properties"));
         ProUtil pro = new ProUtil(fliePath);*/
-        ProUtil pro = new ProUtil("H:\\IdeaSpace\\xunitTestDemo\\java4Demo\\src\\main\\resources\\element.properties");
+        ProUtil pro = new ProUtil("E:\\muke\\java4Demo\\src\\main\\resources\\element.properties");
 
         System.out.println(pro);
         String Locator = pro.GetPro(key); //username=name>email
@@ -76,7 +83,6 @@ public class BasePage {
             return By.xpath(LocatorValue);
         }
     }
-
     /**
      * 点击操作
      * @param by

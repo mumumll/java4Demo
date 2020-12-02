@@ -53,6 +53,7 @@ public class WinxinLoginTest extends BaseTest {
         @Test
         void contackAdd () {
             System.out.println("添加成员");
+            driver.findElement(By.id("menu_contacts")).click();
             driver.findElement(By.linkText("添加成员")).click();
             // 成员姓名
             driver.findElement(By.id("username")).sendKeys("summer01");

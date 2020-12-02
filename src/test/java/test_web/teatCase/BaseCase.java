@@ -1,9 +1,14 @@
-package test_web.page;
+package test_web.teatCase;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.Cookie;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,79 +19,77 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @program: junit4TestDemo
- * @description: 初始化操作,登录企业微信
+ * @description:
  * @author: mumu
- * @create: 2020-11-15 14:49
+ * @create: 2020-12-02 21:31
  **/
-public class MainPage extends BasePage{
-//    WebDriver driver = new ChromeDriver();
-    public MainPage() throws IOException {
-        this.login();
-    }
-  /*  public ContactPage contact(){
-        //进入通讯录
-        click(By.id("menu_contacts"));
-        //传递selenium的driver给另外一个PO
-        return new ContactPage(driver);
-    }
-*/
-    /**
-     * 登录企业微信
-     * @throws IOException
-     */
-    void login() throws IOException {
-        File file = new File("cookies.yaml");
+public class BaseCase {
+    public static WebDriver driver;
+    public static String browserName = "chrome";
+    @BeforeAll
+    public static void initData() throws IOException {
+
+        if("chrome".equals(browserName)){
+            driver = new ChromeDriver();
+        }else if("edge".equals(browserName)){
+            driver = new EdgeDriver();
+        }else if("firefox".equals(browserName)){
+            driver = new FirefoxDriver();
+        }
+
+       /* File file = new File("cookies.yaml");
         if (file.exists()) {
-            // 复用cookies
             loginedTest();
         } else {
-            // 扫码登录
             loginTest();
-        }
+        }*/
+
     }
+
     /**
      * 扫码登录获取cookies
      *
      * @throws IOException
      */
-    void loginTest() throws IOException {
-
-        // 隐士等待5秒
+    static void loginTest () throws IOException {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        // 打开企业微信扫码页面
         driver.get("https://work.weixin.qq.com/wework_admin/frame");
-        sleep(10000);
-        Set cookies = driver.manage().getCookies();
+        //sleep 20
+        sleep(15000);
+        Set<Cookie> cookies = driver.manage().getCookies();
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
         mapper.writeValue(new File("cookies.yaml"), cookies);
+        System.exit(0);
 
     }
+
 
     /**
      * 获取已经登录的cookies
      *
      * @throws IOException
      */
-   void loginedTest() throws IOException {
-
+    static void loginedTest () throws IOException {
+        File file = new File("cookies.yaml");
         // 隐士等待5秒
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         // 打开企业微信扫码页面
         driver.get("https://work.weixin.qq.com/wework_admin/frame");
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
-        TypeReference typeReference = new TypeReference<List<HashMap<String, Object>>>() {
+        TypeReference<List<HashMap<String, Object>>> typeReference = new TypeReference<List<HashMap<String, Object>>>() {
         };
-        List<HashMap<String, Object>> cookies = (List<HashMap<String, Object>>) mapper.readValue(new File("cookies.yaml"), typeReference);
+
+        List<HashMap<String, Object>> cookies = mapper.readValue(file, typeReference);
         System.out.println(cookies);
+
         cookies.forEach(cookieMap -> {
             driver.manage().addCookie(new Cookie(cookieMap.get("name").toString(), cookieMap.get("value").toString()));
         });
         // 刷新浏览器
         driver.navigate().refresh();
+        // 窗口最大化
+        driver.manage().window().maximize();
     }
-    /**
-     * 设置强制等待时间
-     */
     public static void sleep(int time){
         try {
             Thread.sleep(time);
@@ -94,6 +97,4 @@ public class MainPage extends BasePage{
             e.printStackTrace();
         }
     }
-
-
 }
