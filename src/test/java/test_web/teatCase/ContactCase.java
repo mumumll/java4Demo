@@ -13,7 +13,7 @@ import java.io.IOException;
  * @author: mumu
  * @create: 2020-11-15 15:04
  **/
-public class ContactTest extends BaseCase{
+public class ContactCase extends BaseCase{
    public static ContactHandle contactHandle;
   @BeforeAll
   static void BeforeAll()  throws IOException{
@@ -43,4 +43,14 @@ public class ContactTest extends BaseCase{
         contactHandle.clickBtnDelSubmit();
     }
 
+    @Test
+    @Story("添加部门")
+    void addDepartmentTest(){
+      contactHandle.clickBtnTopAdd();
+      contactHandle.clickAddDepartment();
+      contactHandle.sendDepartName("测试部门1");
+      contactHandle.clickSearchDepart();
+      contactHandle.clickDepartNameList();
+      contactHandle.clickBtnAddDepart();
+    }
 }

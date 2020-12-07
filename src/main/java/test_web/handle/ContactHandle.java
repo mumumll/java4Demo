@@ -1,5 +1,6 @@
 package test_web.handle;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import test_web.page.ContactPage;
@@ -98,8 +99,54 @@ public class ContactHandle extends BaseHandle{
      * 点击确认删除
      */
     public void clickBtnDelSubmit(){
-//        sleep(3000);
+        sleep(3000);
         contactPage.getBtnDelSubmit().click();
     }
 
+    /**
+     * 点击添加
+     */
+    public void clickBtnTopAdd(){
+        sleep(3000);
+        contactPage.getBtnTopAdd().click();
+    }
+
+    /**
+     * 点击添加部门
+     */
+    public void clickAddDepartment(){
+        contactPage.getAddDepartment().click();
+    }
+
+    public void sendDepartName(String departName){
+        System.out.println("输入部门名称" + departName);
+        WebElement departNameElement = contactPage.getDepartName();
+//        ClearText(mobileElement);
+        departNameElement.sendKeys(departName);
+    }
+    /**
+     * 点击选择所属部门
+     */
+    public void clickSearchDepart(){
+        System.out.println("选择所属部门");
+        contactPage.getSearchDepart().click();
+    }
+
+    /**
+     * 点击要添加的部门
+     */
+    public void clickDepartNameList(){
+        sleep(3000);
+//        contactPage.getDepartNameList().click();
+        driver.findElements(By.linkText("木木网络有限公司")).get(1).click();
+    }
+
+    /**
+     * 点击添加部门确定
+     */
+    public void clickBtnAddDepart(){
+        System.out.println("确定添加部门");
+        sleep(3000);
+        contactPage.getBtnAddDepart().click();
+    }
 }

@@ -80,4 +80,52 @@ public class ContactPage extends BasePage {
         return getElement("btndelsubmit");
     }
 
+    /**
+     * 获取添加按钮元素
+     * @return
+     */
+    public WebElement getBtnTopAdd(){
+        return getElement("btntop_add");
+    }
+
+    /**
+     * 获取添加部门按钮元素
+     * @return
+     */
+    public WebElement getAddDepartment(){
+        return getElement("add_department");
+    }
+
+    /**
+     * 获取部门名称元素
+     * @return
+     */
+    public WebElement getDepartName(){
+        return getElement("depart_name");
+    }
+
+    /**
+     * 获取选择所属部门按钮元素
+     * @return
+     */
+    public WebElement getSearchDepart(){
+        return getElement("search_depart");
+    }
+
+    /**
+     * 获取部门按钮元素
+     * @return
+     */
+    public WebElement getDepartNameList(){
+        return getElement("depart_name_list");
+
+    }
+
+    /**
+     * 获取添加部门确认按钮元素
+     * @return
+     */
+    public WebElement getBtnAddDepart(){
+        return getElement("btnadddepart");
+    }
 }
