@@ -2,9 +2,10 @@ package service.wechat.department;
 
 import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import service.wechat.apiObject.DepartMentObject;
@@ -35,18 +36,17 @@ public class Demo05Param {
     }
 
     @DisplayName("批量删除部门")
-    @BeforeEach
+//    @BeforeEach
     void clearDepartment(){
         DepartMentObject.clearDpartMentList(accessToken);
     }
 
     @DisplayName("创建部门")
-    @Test
-    void createDepartment(){
-        String createName = "name" + FakerUtils.getTimeStamp();
-        String createEnName = "en_name" + FakerUtils.getTimeStamp();
+    @ParameterizedTest
+    @CsvFileSource(resources = "/data/createDepartment.csv", numLinesToSkip = 1)
+    void createDepartment(String createName, String createEnName, String returnCode){
         Response createResponse = DepartMentObject.creatDepartMent(createName,createEnName,accessToken);
-        assertEquals("0",createResponse.path("errcode").toString());
+        assertEquals(returnCode,createResponse.path("errcode").toString());
     }
 
     @DisplayName("修改部门")
