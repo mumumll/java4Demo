@@ -6,7 +6,7 @@ public class Junit5Test {
 
     @BeforeAll
     public static void befter(){
-        System.out.println("befter");
+        System.out.println("befterAll");
     }
     @BeforeEach
     public void beforeEach(){
@@ -31,8 +31,9 @@ public class Junit5Test {
     }
 
     @AfterAll
-    public static void after(){
-        System.out.println("after");
+    public static void afterAll(){
+        System.out.println("afterAll");
     }
+
 
 }

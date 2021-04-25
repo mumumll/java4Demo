@@ -5,6 +5,7 @@ package test_web;/**
  * @create: 2020-11-10 23:38
  **/
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -39,12 +40,12 @@ public class BaseTest {
             driver = new FirefoxDriver();
         }
     }
- /*   @AfterAll
+    @AfterAll
     public static void quit(){
         sleep(10000);
         driver.quit();
 
-    }*/
+    }
 
     public static void sleep(int time){
         try {

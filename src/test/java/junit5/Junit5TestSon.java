@@ -6,7 +6,7 @@ public class Junit5TestSon extends Junit5Test {
 
     @BeforeAll
     public static void befterSon(){
-        System.out.println("befter Son");
+        System.out.println("befterAll Son");
     }
     @BeforeEach
     public void beforeEachSon(){
@@ -22,14 +22,14 @@ public class Junit5TestSon extends Junit5Test {
         System.out.println("this is test01 Son");
     }
     @Test
-    @RepeatedTest(10)
+    @RepeatedTest(1)
     void test02Son(){
         System.out.println("this is test02 Son");
     }
 
     @AfterAll
     public static void afterSon(){
-        System.out.println("after Son");
+        System.out.println("afterAll Son");
     }
 
 }

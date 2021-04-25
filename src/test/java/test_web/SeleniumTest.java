@@ -43,7 +43,7 @@ public class SeleniumTest extends BaseTest{
         driver.navigate().refresh();
     }
     /**
-     * Action 用法，元素点击
+     * Actions 用法，元素点击
      */
     @Test
     void clickTest(){
@@ -64,7 +64,7 @@ public class SeleniumTest extends BaseTest{
         sleep(10000);
     }
     /**
-     * Action 用法，鼠标移动
+     * Actions 用法，鼠标移动
      */
     @Test
     void mouseMoveTest(){
@@ -77,7 +77,7 @@ public class SeleniumTest extends BaseTest{
     }
 
     /**
-     * Action用法，拖动一个元素到另一个元素上
+     * Actions用法，拖动一个元素到另一个元素上
      */
     @Test
     void dropTest(){
